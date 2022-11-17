@@ -1,0 +1,35 @@
+<aura:component >
+	<lightning:card class="newC" title="Account" iconName="standard:account" footer="copyright">
+      
+        <aura:set attribute="actions">
+            <lightning:button iconName="utility:add" label="Follow" />
+            <lightning:buttonGroup>
+                <lightning:button label="New Contact"/>
+                <lightning:button label="New Case"/>
+                <lightning:button label="New Note"/>
+               <lightning:buttonMenu alternativeText="More">
+                    <lightning:menuItem value="nOpp" label="New Opportunity"/>
+                    <lightning:menuItem value="chOwner" label="Change Owner"/>
+                    <lightning:menuItem value="CFND" label="Check for New Data"/>
+                    <lightning:menuItem value="sfa" label="Submit for Approval"/>
+                    <lightning:menuItem value="edt" label="Edit"/>
+                    <lightning:menuItem value="dlt" label="Delete"/>
+                    <lightning:menuItem value="shrng" label="Sharing"/>
+                    <lightning:menuItem value="vah" label="View Accoy Hierarchy"/>
+                
+                </lightning:buttonMenu>
+               
+            </lightning:buttonGroup>
+        </aura:set>
+        
+        <aura:set attribute="title">
+            Account
+            <h1><b> Burlington Textiles Corp of America</b></h1>  
+        </aura:set>
+        
+        Type<br/>
+        Phone<br/>
+        Website<br/>
+        Account Owner<br/>
+    </lightning:card>
+</aura:component>

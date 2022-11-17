@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<lightning:card class="slds-theme_default">
+    <lightning:tabset>
+        <lightning:tab label="Profile">
+            Fetching The Particular User Record
+        </lightning:tab>
+        <lightning:tab label="Products">
+            Creating Products(Component) and View His Products(fetching products created by him only)
+            <lightning:card title="New Product">
+        <aura:set attribute="actions">
+            <lightning:button label="Create Product" variant="Brand" onclick="{!c.callme}"/>
+        </aura:set>
+        <lightning:layout>
+            <lightning:layoutItem size="5" padding="around-small">
+                <lightning:input label="Product Name" value="{!v.Productname}"/>
+                <lightning:input label="Brand" value="{!v.Brand}"/>
+                <lightning:input label="Price" value="{!v.Price}"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+            <lightning:card title="Your Products">
+            <div>
+                        <lightning:treeGrid onactive="{!c.proRec}"
+                                            columns="{! v.gridColumns }"
+                                            data="{! v.gridData }"
+                                            expandedRows="{! v.gridExpandedRows }"
+                                            keyField="name"/>
+                    </div>
+            </lightning:card>
+        </lightning:tab>
+        <lightning:tab label="Orders">
+            Orders Data of his products
+        </lightning:tab>
+    </lightning:tabset>
+    </lightning:card>
+</aura:component>

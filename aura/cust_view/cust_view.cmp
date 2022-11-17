@@ -1,0 +1,42 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<lightning:card class="slds-theme_default">
+    <lightning:tabset>
+        <lightning:tab label="Home">
+            Displaying Few Products Using Carousel Images (by category)
+        </lightning:tab>
+        <lightning:tab label="Electronic Products">
+            fetching the products like category - 'Electronic Products' and displaying(Lightning Compo) 
+        </lightning:tab>
+        <lightning:tab label="Beauty Products">
+            fetching the products like category - 'Beauty Products' and displaying (Lightning Compo)
+        </lightning:tab>
+                <lightning:tab label="Fashion Products">
+            fetching the products like category - 'Fashion Products' and displaying (Lightning Compo)
+        </lightning:tab>
+        <lightning:tab label="Search Products">
+            <lightning:card title = "Welcome to QuickShop" iconName="standard:webcart">
+        <lightning:layout>
+            <lightning:layoutItem size = "4">
+                <div class="slds-m-left_medium">
+                    <lightning:input name="countryName" 
+                                     value="{!v.countryName}" 
+                                     label="Enter Country Name" 
+                                     type = "search"/>
+                    <lightning:input name="searchPrduct" 
+                                     value="{!v.searchProduct}" 
+                                     label="Search Product" 
+                                     type = "search"/>  
+                </div>
+                
+                <lightning:button class="slds-m-left_medium slds-m-top_medium" 
+                                  iconName = "utility:search" 
+                                  name="click" variant="brand" 
+                                  label="Search Product" 
+                                  onclick="{! c.searchingProduct }"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+        </lightning:tab>
+    </lightning:tabset>
+    </lightning:card>
+</aura:component>
