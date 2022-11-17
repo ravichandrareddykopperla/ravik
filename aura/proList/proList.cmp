@@ -1,0 +1,48 @@
+<aura:component controller="ProductRecords" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    
+    <aura:attribute name="searchProduct" type="String"/>
+    <aura:attribute name="productList" type="Product2[]"/>
+    
+    <aura:attribute name="openmodel" type="boolean"/>
+    <aura:attribute name="fields" type="String[]" default="['Product__c','Order__c']" />
+    
+    <lightning:card title = "One Stop Online Shop" iconName="standard:webcart">
+        <lightning:layout>
+            <lightning:layoutItem size = "4">
+                <div class="slds-m-left_medium">
+                    <lightning:input name="searchPrduct" 
+                                     value="{!v.searchProduct}" 
+                                     label="Search Product" 
+                                     type = "search"/>  
+                </div>
+                
+                <lightning:button class="slds-m-left_medium slds-m-top_medium" 
+                                  iconName = "utility:search" 
+                                  name="click" variant="brand" 
+                                  label="Search Product" 
+                                  onclick="{! c.searchingProduct }"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+    
+    <aura:if isTrue="{!!empty(v.productList)}">
+        <aura:iteration items="{!v.productList}" var="prod" >
+                <lightning:card title= "{!prod.Name}" 
+                                iconName = "standard:product" 
+                                class="--slds-c-card-color-border">
+                    <div class="slds-m-left_medium">
+                            <div class = "mybx">
+                                id - {!prod.id}
+                        </div></div>
+                    <aura:set attribute = "body">
+                    <lightning:button name="{!prod.Id}" 
+                                      label="Add To Cart" 
+                                      variant="brand-outline" 
+                                      onclick="{!c.addToCart}"/>
+                    </aura:set>
+                </lightning:card>
+        </aura:iteration>
+    </aura:if>
+</aura:component>

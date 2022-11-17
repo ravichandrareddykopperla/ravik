@@ -1,0 +1,9 @@
+<template>
+
+    <lightning-card>
+        <lightning-button label="Buy Now" onclick={handleClick}></lightning-button>
+    </lightning-card>
+    <lightning-card title="Order Line Items">
+        <lightning-datatable key-field="Id" data={items.data} columns={col}></lightning-datatable>
+    </lightning-card>
+</template>
